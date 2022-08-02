@@ -1,0 +1,23 @@
+.thumb {
+	width: 340px;
+	height: 340px;
+	margin: 0 auto;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	display: flex;
+	align-items: flex-end;
+	background-image: url("https://picsum.photos/340/340");
+	
+	.title-container {
+		/* dégrader bottom to top */
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+		width: 100%;
+
+		.title {
+			color: white;
+			font-size: 1.2em;
+			padding: 10px;
+		}
+	}
+}
