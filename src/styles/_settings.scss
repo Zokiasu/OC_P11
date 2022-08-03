@@ -5,24 +5,72 @@
 
 $font-1: "font-1", sans-serif;
 
-$white: rgb(243, 243, 243);
+$white: rgb(255, 255, 255);
+$gray: rgb(246, 246, 246);
+$red: rgb(255, 96, 96);
 
-@mixin verticalCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+$mobile-small: 350px;
+$mobile: 640px;
+$tablet: 768px;
+$desk: 1024px;
+$large-desk: 1280px;
+
+$breakpoint: (
+  mobile: $mobile,
+  tablet: $tablet,
+  desk: $desk,
+  large-desk: $large-desk
+) !default;
+
+@mixin mobile{
+  @media screen and (max-width: map-get($breakpoint, mobile)){
+    @content;
+  }
+}
+
+@mixin tablet{
+  @media screen and (max-width: map-get($breakpoint, tablet)){
+    @content;
+  }
+}
+
+@mixin desk{
+  @media screen and (max-width: map-get($breakpoint, desk)){
+    @content;
+  }
+}
+
+@mixin large-desk{
+  @media screen and (max-width: map-get($breakpoint, large-desk)){
+    @content;
+  }
 }
 
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  border: none;
+	text-decoration: none;
 }
 
 body {
   background: $white;
-  // @include verticalCenter;
 }
+
 li {
   list-style-type: none;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+  max-width: 1280px;
+
+  @include tablet{
+    max-width: $mobile;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
 }

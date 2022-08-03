@@ -1,5 +1,8 @@
 import { React, useState } from 'react';
 
+import { ReactComponent as IconArrowLeft } from '../assets/icons/arrow-left.svg'
+import { ReactComponent as IconArrowRight } from '../assets/icons/arrow-right.svg'
+
 const Carousel = (props) => {
 
 	const [currentIndex, setCurrentIndex] = useState({index: 1});
@@ -26,45 +29,42 @@ const Carousel = (props) => {
 		return (
 			<div className="carousel" aria-label="carousel">
 				<div className="medias">
-					{props.images.map((image, index) => {
+					{props.items.map((image, index) => {
 						return (
 							<img 
+                aria-hidden={currentIndex.index === index +1 ? "false" : "true"}
 								key={index} 
 								src={image} 
 								alt={image} 
-								className={`media ${currentIndex.index === index + 1 ? 'media--active' : ''}`}
+								className="medias-item"
 							/>
 						)})
 					}
 				</div>
 
 				<div className="carousel-nav">
-					<button className="carousel-nav__button" onClick={prev}>
-						<svg className="carousel-nav__icon" viewBox="0 0 24 24">
-							<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-						</svg>
+					<button className="carousel-nav__button__right" onClick={prev}>
+						<IconArrowLeft />
 					</button>
-					<button className="carousel-nav__button" onClick={next}>
-						<svg className="carousel-nav__icon" viewBox="0 0 24 24">
-							<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-						</svg>
+					<button className="carousel-nav__button__left" onClick={next}>
+						<IconArrowRight />
 					</button>
 				</div>
 
-				<span className="currentImgCount" tabIndex="0">{`${currentIndex.index} / ${props.images.length}`}</span>
+				<span className="currentImgCount" tabIndex="0">{`${currentIndex.index} / ${props.items.length}`}</span>
 			</div>
 		);
 	} else {
 		return (
 			<div className="carousel">
 				<div className="medias">
-					{props.images.map((image, index) => {
+					{props.items.map((image, index) => {
 						return (
 							<img 
 								key={index} 
 								src={image} 
 								alt={image} 
-								className={`media ${currentIndex.index === index + 1 ? 'media--active' : ''}`}
+								className="medias-item"
 							/>
 						)})
 					}

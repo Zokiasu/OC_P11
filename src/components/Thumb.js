@@ -1,11 +1,14 @@
 import React from 'react';
 
-const Thumb = () => {
+const Thumb = ({ title, cover }) => {
 	return (
-		<div className='thumb'>
+		<div 
+			className='thumb'
+			style={{ backgroundImage: `url(${cover})` }}
+		>
 			<div className='title-container'>
 				<p className='title'>
-					Titre de la location
+					{title}
 				</p>
 			</div>
 		</div>

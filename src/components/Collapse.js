@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react'
+import { React, useState, useEffect } from 'react'
 
 import { ReactComponent as IconArrowDown } from '../assets/icons/arrow-down.svg'
 
@@ -10,8 +9,15 @@ const Collapse = (props) => {
 		setIsOpen(!isOpen);
 	}
 
+	// if props.isOpen is set true then set isOpen to true
+	useEffect(() => {
+		if (props.isOpen) {
+			setIsOpen(true);
+		}
+	}, [props.isOpen])
+
 	return (
-		<div>
+		<div className='collapse'>
 			<button
 				className="collapse-button"
 				onClick={toggle}

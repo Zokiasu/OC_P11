@@ -1,13 +1,31 @@
-import React from 'react';
-import Navigation from '../components/Navigation';
+import React, { useEffect, useState } from 'react';
+import Banner from '../components/Banner';
+import Header from '../components/Header';
 import Thumb from '../components/Thumb';
 
+import bannerImg from '../assets/img/banner-home.png'
+
 const Home = () => {
+
+	const [data, setData] = useState([]);
+    
+	useEffect(() => {
+		fetch('./data/data.json')
+			.then(res => res.json())
+			.then((result) => setData(result));
+	}, [])
+
 	return (
-		<div>
-			<Navigation/>
-			<h1>Home</h1>
-			{/* <Thumb/> */}
+		<div className='home'>
+			<Header/>
+			<div className='home-body container'>
+				<Banner image={bannerImg} title="Chez vous, partout et ailleurs"/>
+				<div className='thumb-list'>
+					{data.map(item => (
+						<Thumb key={item.id} title={item.title} cover={item.cover}/>
+					))}
+				</div>
+			</div>
 		</div>
 	);
 };
