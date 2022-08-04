@@ -1,0 +1,23 @@
+.footer {
+	background-color: #000;
+	width: 100%;
+	padding: 3rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: $white;
+	margin-top: 5rem;
+
+	&__logo {
+		height: 40px;
+	}
+
+	p {
+		margin-top: 1.5rem;
+
+		@include tablet{
+			font-size: 0.8rem;
+		}
+	}
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Collapse from '../components/Collapse';
 import Carousel from '../components/Carousel';
 import Tag from '../components/Tag';
@@ -23,7 +24,6 @@ const House = () => {
 				.then((result) => {
 					const currentHouse = result.find(item => item.id === houseId)
 					setHouse(currentHouse)
-					console.log(currentHouse)
 					setIsLoaded(true)
 				}, (error) => {
 					setIsLoaded(true)
@@ -47,7 +47,7 @@ const House = () => {
 							<h2>{house.location}</h2>
 							<div className='tags'>
 								{house.tags.map((tag, index) => (
-									<Tag key={index} tag={tag}/>
+									<Tag key={tag + '_' + index} tag={tag}/>
 								))}
 							</div>
 						</div>
@@ -73,6 +73,7 @@ const House = () => {
 					</div>
 				</div>
 			</div>
+			<Footer/>
 		</div>
 	);
 };

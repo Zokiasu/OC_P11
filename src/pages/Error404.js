@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { NavLink } from 'react-router-dom';
 
 const error404 = () => {
@@ -15,6 +16,7 @@ const error404 = () => {
 					<p>Retourner sur la page d’accueil</p>
 				</NavLink>
 			</div>
+			<Footer/>
 		</div>
 	);
 };
