@@ -6,12 +6,14 @@ import { ReactComponent as Logo } from '../assets/img/logo.svg'
 const Header = () => {
 	return (
 		<div className='header container'>
-			<Logo className='header__logo'/>
+			<NavLink to="/">
+				<Logo className='header__logo'/>
+			</NavLink>
 			<ul className='header__link'>
-				<NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+				<NavLink to="/">
 					<li>Acceuil</li>
 				</NavLink>
-				<NavLink to="/about" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+				<NavLink to="/about">
 					<li>A propos</li>
 				</NavLink>
 			</ul>

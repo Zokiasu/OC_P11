@@ -1,0 +1,17 @@
+.ranking {
+
+	.star {
+		height: 2rem;
+		width: 2rem;
+		color: $red;
+
+		@include tablet{
+			height: 1.5rem;
+			width: 1.5rem;
+		}
+	}
+
+	.star-empty {
+		color: rgb(204, 204, 204);
+	}
+}
